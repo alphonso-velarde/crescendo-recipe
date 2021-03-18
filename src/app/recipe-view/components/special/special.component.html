@@ -1,0 +1,42 @@
+<div class="special--div">
+  <div class="row">
+    <div
+      *ngFor="let special of specials"
+      class="col-sm-12 mt--10 mb--10"
+      [ngClass]="{
+        ' col-md-6': specialLength === 2,
+        'col-md-4': specialLength === 3,
+        'col-md-3': specialLength > 3
+      }"
+    >
+      <div class="special--ad">
+        <p>
+          {{ special.type === "event" ? "Like" : "Want" }}
+          <b>{{ special.name }}</b
+          >?
+        </p>
+        <p>{{ special.title }}</p>
+        <p>{{ special.text }}!</p>
+        <p *ngIf="special?.code">
+          <b>PROMO CODE: {{ special.code }}</b>
+        </p>
+        <agm-map
+          *ngIf="special.geo"
+          [zoom]="15" [usePanning]="true"
+          [latitude]="getLatlong(special.geo, 0)"
+          [longitude]="getLatlong(special.geo, 1)"
+          [ngClass]="{
+            'map-height--200': specialLength < 2,
+            'map-height--150': specialLength === 2,
+            'map-height--200': specialLength >= 3
+          }"
+        >
+          <agm-marker
+            [latitude]="getLatlong(special.geo, 0)"
+            [longitude]="getLatlong(special.geo, 1)"
+          ></agm-marker>
+        </agm-map>
+      </div>
+    </div>
+  </div>
+</div>

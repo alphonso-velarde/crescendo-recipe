@@ -1,0 +1,8 @@
+<div class="container card--div">
+  <div class="row" *ngIf="isLoaded">
+    <div *ngFor="let recipe of recipes" class="col-sm-12 col-md-4 card--display">
+      <recipe-card [routerLink]="['/view-recipe/', recipe.uuid]" [recipe]="recipe"></recipe-card>
+    </div>
+  </div>
+  <loader *ngIf="!isLoaded"></loader>
+</div>

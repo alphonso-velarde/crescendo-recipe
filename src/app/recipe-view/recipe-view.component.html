@@ -1,0 +1,35 @@
+<div class="recipe--div">
+  <div class="container">
+    <div *ngIf="isLoaded" class="row recipe--row">
+      <div class="col-sm-12">
+        <h1>{{recipe.title}}</h1>
+        <p>Prep Time: <b>{{recipe.prepTime}} mins.</b> Cooking: <b>{{recipe.cookTime}} mins.</b> Serving: <b>{{recipe.servings}}</b></p>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <div class="img--div">
+          <img [src]="fullImg" class="img">
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <h4>Ingredients</h4>
+        <ul class="square-list">
+          <li *ngFor="let ing of recipe.ingredients">
+            {{ing.amount}} {{ing.measurement}} {{ing.measurement ? 'of' : ''}} {{ing.name}}
+          </li>
+        </ul>
+      </div>
+      <div *ngIf="specials.length > 0" class="col-sm-12">
+        <special [specials]="specials"></special>
+      </div>
+      <div class="col-sm-12">
+        <h4>Directions</h4>
+        <ul class="square-list">
+          <li *ngFor="let dir of recipe.directions">
+            {{dir.instructions}} {{dir.optional ? '(optional)' : ''}}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <loader *ngIf="!isLoaded"></loader>
+  </div>
+</div>

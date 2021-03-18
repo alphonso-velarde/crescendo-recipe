@@ -1,0 +1,16 @@
+<mat-card class="card--spacing">
+  <mat-card-header>
+    <div mat-card-avatar></div>
+    <mat-card-title>{{recipe.title}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image class="card--img" [src]="mediumImg" [alt]="recipe.title">
+  <mat-card-content>
+    <p>
+      {{recipe.description}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <!-- <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button> -->
+  </mat-card-actions>
+</mat-card>

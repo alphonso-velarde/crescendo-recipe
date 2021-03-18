@@ -1,0 +1,24 @@
+ @import "config"
+
+html, body 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 16px;
+    overflow-x: hidden
+
+.container-fluid
+    padding 0;
+    margin: 0;
+.mt
+    &--10
+        margin-top:10px
+    &--20
+        margin-top:20px
+.mb
+    &--10
+        margin-bottom:10px
+    &--20
+        margin-bottom:20px
+
+.mat-card-avatar
+    @media screen and (max-width: 768px)
+        width: 0px !important
